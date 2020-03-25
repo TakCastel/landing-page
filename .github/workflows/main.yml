@@ -31,5 +31,5 @@ jobs:
     # Deploy firebase
     - name: Firebase Deploy
       run: |
-        npm i -g firebase-tools@v6.3.0
+        sudo npm i -g firebase-tools@v6.3.0
         firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}
