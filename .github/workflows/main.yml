@@ -15,7 +15,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -31,5 +31,5 @@ jobs:
     # Deploy firebase
     - name: Firebase Deploy
       run: |
-        npm i -g firebase-tools@v6.3.0
+        sudo npm i -g firebase-tools
         firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}
