@@ -32,6 +32,8 @@ export default {
 
   methods: {
     handleClick() {
+      /* eslint-disable */
+      console.log(this.redirectionLink)
       window.location.href = this.redirectionLink
     }
   }

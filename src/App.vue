@@ -11,7 +11,7 @@
         alternativeText="Fond d'écran de Final Fantasy XIV"
       />
       <Card
-        redirectionLink=""
+        redirectionLink="https://teso.brumes-rp.fr/"
         :backgroundImage="require('./assets/bg-teso.jpg')"
         alternativeText="Fond d'écran de The Elder Scrolls Online"
       />
