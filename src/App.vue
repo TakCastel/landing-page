@@ -21,6 +21,12 @@
         :backgroundImage="require('./assets/bg-wow.jpg')"
         alternativeText="Fond d'écran de World of Warcraft"
       />
+      <Card 
+        isDisabled
+        redirectionLink=""
+        :backgroundImage="require('./assets/bg-swtor.jpg')"
+        alternativeText="Fond d'écran de Star Wars The Old Republic"
+      />
     </div>
   </div>
 </template>
