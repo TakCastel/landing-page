@@ -2,31 +2,16 @@
   <div id="app">
     <h1>Brumes Roleplay</h1>
     <p>Bienvenue sur le site officiel de la Guilde Brumes.</p>
-    <p>Avant de porusuivre, sélectionnez votre jeu.</p>
+    <p>Avant de poursuivre, sélectionnez votre jeu.</p>
     <div class="row">
       <Card 
-        isDisabled
-        redirectionLink=""
-        :backgroundImage="require('./assets/bg-ffxiv.jpg')"
-        alternativeText="Fond d'écran de Final Fantasy XIV"
+        v-for="(game, index) in games"
+        :key="index"
+        :redirectionLink="`https://${game.title}.brumes-rp.fr/`"
+        :backgroundImage="game.thumbnail ? game.thumbnail.url : undefined"
+        alternativeText="Jacket du jeu"
       />
-      <Card
-        redirectionLink="https://teso.brumes-rp.fr/"
-        :backgroundImage="require('./assets/bg-teso.jpg')"
-        alternativeText="Fond d'écran de The Elder Scrolls Online"
-      />
-      <Card
-        isDisabled
-        redirectionLink=""
-        :backgroundImage="require('./assets/bg-wow.jpg')"
-        alternativeText="Fond d'écran de World of Warcraft"
-      />
-      <Card 
-        isDisabled
-        redirectionLink=""
-        :backgroundImage="require('./assets/bg-swtor.jpg')"
-        alternativeText="Fond d'écran de Star Wars The Old Republic"
-      />
+      
     </div>
   </div>
 </template>
@@ -38,6 +23,20 @@ export default {
   name: 'app',
   components: {
     Card
+  },
+
+  data: () => ({
+    games: [
+      
+    ]
+  }),
+
+  beforeMount() {
+    const baseURI = 'https://brumes-api.herokuapp.com/'
+      this.$http.get(`${baseURI}games`)
+      .then((result) => {
+        this.games = result.data
+      })
   }
 }
 </script>
