@@ -4,7 +4,7 @@
     <p>Bienvenue sur le site officiel de la Guilde Brumes.</p>
     <p>Avant de poursuivre, sélectionnez votre jeu.</p>
     <div class="banner">
-      <img class="banner-item" src="../src/assets/JACKANNIVBAN_BORDER_LEFT_V1.png" alt="Bordure de bannière">
+      <img loading="lazy" class="banner-item" src="../src/assets/JACKANNIVBAN_BORDER_LEFT_V1.png" alt="Bordure de bannière">
       <Card 
         v-for="(game, index) in games"
         :key="index"
@@ -13,7 +13,7 @@
         :backgroundImage="game.thumbnail"
         alternativeText="Jacket du jeu"
       />
-      <img class="banner-item" src="../src/assets/JACKANNIVBAN_BORDER_RIGHT_V1.png" alt="Bordure de bannière">
+      <img loading="lazy" class="banner-item" src="../src/assets/JACKANNIVBAN_BORDER_RIGHT_V1.png" alt="Bordure de bannière">
     </div>
   </div>
 </template>
@@ -79,6 +79,7 @@ body {
 .banner {
   display: flex;
   justify-content: center;
+  align-items: start;
   margin-top: 28px;
 }
 

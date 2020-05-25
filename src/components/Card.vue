@@ -1,7 +1,7 @@
 <template>
   <div class="card banner-item" @click="handleClick">
-    <img class="thumbnail-hovered" :src="hoveredThumbnail" :alt="alternativeText">
-    <img class="thumbnail" :src="backgroundImage" :alt="alternativeText">
+    <img loading="lazy" class="thumbnail-hovered" :src="hoveredThumbnail" :alt="alternativeText">
+    <img loading="lazy" class="thumbnail" :src="backgroundImage" :alt="alternativeText">
   </div>
 </template>
 
