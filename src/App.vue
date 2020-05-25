@@ -3,15 +3,17 @@
     <h1>Brumes Roleplay</h1>
     <p>Bienvenue sur le site officiel de la Guilde Brumes.</p>
     <p>Avant de poursuivre, sélectionnez votre jeu.</p>
-    <div class="row">
+    <div class="banner">
+      <img class="banner-item" src="../src/assets/JACKANNIVBAN_BORDER_LEFT_V1.png" alt="Bordure de bannière">
       <Card 
         v-for="(game, index) in games"
         :key="index"
         :redirectionLink="`https://${game.title}.brumes-rp.fr/`"
-        :backgroundImage="game.thumbnail ? game.thumbnail.url : undefined"
+        :hoveredThumbnail="game.hoveredThumbnail"
+        :backgroundImage="game.thumbnail"
         alternativeText="Jacket du jeu"
       />
-      
+      <img class="banner-item" src="../src/assets/JACKANNIVBAN_BORDER_RIGHT_V1.png" alt="Bordure de bannière">
     </div>
   </div>
 </template>
@@ -27,21 +29,35 @@ export default {
 
   data: () => ({
     games: [
-      
+      {
+        title: 'wow',
+        thumbnail: require('../src/assets/JACKANNIVBAN_BORDERWOW_V1.png'),
+        hoveredThumbnail: require('../src/assets/JACKANNIVBAN_BORDERWOW_V2.png'),
+      },
+      {
+        title: 'teso',
+        thumbnail: require('../src/assets/JACKANNIVBAN_BORDERTESO_V1.png'),
+        hoveredThumbnail: require('../src/assets/JACKANNIVBAN_BORDERTESO_V2.png'),
+      },
+      {
+        title: 'swtor',
+        thumbnail: require('../src/assets/JACKANNIVBAN_BORDERSW_V1.png'),
+        hoveredThumbnail: require('../src/assets/JACKANNIVBAN_BORDERSW_V2.png'),
+      },
+      {
+        title: 'ffxiv',
+        thumbnail: require('../src/assets/JACKANNIVBAN_BORDERFF_V1.png'),
+        hoveredThumbnail: require('../src/assets/JACKANNIVBAN_BORDERFF_V2.png'),
+      }
     ]
-  }),
-
-  beforeMount() {
-    const baseURI = 'https://brumes-api.herokuapp.com/'
-      this.$http.get(`${baseURI}games`)
-      .then((result) => {
-        this.games = result.data
-      })
-  }
+  })
 }
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+
 * {
   margin: 0;
 }
@@ -60,9 +76,13 @@ body {
   color: #ebe6e4;
 }
 
-.row {
+.banner {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   margin-top: 28px;
+}
+
+.banner-item {
+  width: 15vw /* Total must be < 100vw */
 }
 </style>
